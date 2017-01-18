@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebFormAuth.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Forms Authentication, Authorization, and User Accounts</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header">
+            <span class="title">User Account Tutorials</span>
+        </div>
+
+        <div id="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <!-- Page-specific content will go here... -->
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div id="navigation">
+            <asp:ContentPlaceHolder ID="LoginContent" runat="server">
+
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <LoggedInTemplate>
+                        Welcome back,
+                        <asp:LoginName ID="LoginName1" runat="server" />
+                        .
+                    </LoggedInTemplate>
+                    <AnonymousTemplate>
+                        Hello Stranger.
+                        <asp:HyperLink ID="InkLogin" runat="server" NavigateUrl="~/Login.aspx">Log In</asp:HyperLink>
+                    </AnonymousTemplate>
+                </asp:LoginView>
+                <br />
+                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Logout.aspx "/>
+                <br />
+                <br />
+
+            </asp:ContentPlaceHolder>
+            TODO: Menu will go here...
+        </div>
+
+    </form>
+</body>
+</html>
